@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Portfolio </title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: #0d0d0d; 
+            color: #fff; 
+            overflow-x: hidden; 
+            cursor: none; /* Hide default cursor */
+        }
+        /* Custom Cursor */
+        .cursor { 
+            position: fixed; 
+            width: 20px; 
+            height: 20px; 
+            background: rgba(0, 255, 255, 0.8); 
+            border-radius: 50%; 
+            pointer-events: none; 
+            z-index: 9999; 
+            transition: transform 0.1s ease; 
+        }
+        .cursor-trail { 
+            position: fixed; 
+            width: 10px; 
+            height: 10px; 
+            background: rgba(255, 0, 255, 0.5); 
+            border-radius: 50%; 
+            pointer-events: none; 
+            z-index: 9998; 
+            transition: transform 0.2s ease; 
+        }
+        /* Header */
+        header { 
+            height: 100vh; 
+            background: linear-gradient(135deg, #0d0d0d, #1a1a1a); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            position: relative; 
+        }
+        .glitch { 
+            font-size: 4rem; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            color: #00f7ff; 
+            position: relative; 
+            animation: glitch 2s infinite; 
+        }
+        .glitch::before, .glitch::after { 
+            content: 'Zane Flux'; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+        }
+        .glitch::before { 
+            color: #ff00ff; 
+            animation: glitch-top 1s infinite; 
+            clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%); 
+        }
+        .glitch::after { 
+            color: #fff; 
+            animation: glitch-bottom 1.5s infinite; 
+            clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%); 
+        }
+        @keyframes glitch { 
+            0%, 100% { transform: translate(0); } 
+            20% { transform: translate(-5px, 5px); } 
+            40% { transform: translate(5px, -5px); } 
+        }
+        @keyframes glitch-top { 
+            0%, 100% { transform: translate(0); } 
+            50% { transform: translate(-3px, 0); } 
+        }
+        @keyframes glitch-bottom { 
+            0%, 100% { transform: translate(0); } 
+            50% { transform: translate(3px, 0); } 
+        }
+        p.tagline { 
+            font-size: 1.3rem; 
+            color: #ccc; 
+            margin-top: 15px; 
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5); 
+        }
+        /* Skills Orbit */
+        .skills-orbit { 
+            padding: 50px 20px; 
+            text-align: center; 
+            position: relative; 
+            height: 300px; 
+        }
+        .orbit-container { 
+            position: relative; 
+            width: 200px; 
+            height: 200px; 
+            margin: 0 auto; 
+            animation: rotate 20s linear infinite; 
+        }
+        .skill-icon { 
+            position: absolute; 
+            width: 40px; 
+            height: 40px; 
+            background: #00f7ff; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 0.9rem; 
+            color: #0d0d0d; 
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7); 
+        }
+        @keyframes rotate { 
+            from { transform: rotate(0deg); } 
+            to { transform: rotate(360deg); } 
+        }
+        /* Projects */
+        .projects { 
+            padding: 50px 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; 
+        }
+        .project-card { 
+            background: #1a1a1a; 
+            padding: 25px; 
+            border-radius: 15px; 
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1); 
+            transition: all 0.3s; 
+            position: relative; 
+        }
+        .project-card h2 { 
+            font-size: 1.6rem; 
+            color: #ff00ff; 
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.5); 
+        }
+        .project-card p { color: #bbb; }
+        .project-card a { 
+            color: #00f7ff; 
+            font-weight: bold; 
+            text-decoration: none; 
+        }
+        .project-card a:hover { text-decoration: underline; }
+        footer { 
+            padding: 20px; 
+            background: #1a1a1a; 
+            text-align: center; 
+            color: #ccc; 
+        }
+        footer a { color: #ff00ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-trail"></div>
+
+    <header>
+        <h1 class="glitch">KARTHIK</h1>
+        <p class="tagline"> Obsessed with Coding </p>
+    </header>
+
+    <section class="skills-orbit">
+        <h2>Skills Orbit</h2>
+        <div class="orbit-container">
+            <div class="skill-icon" style="top: 0; left: 80px;">HTML</div>
+            <div class="skill-icon" style="top: 60px; left: 140px;">CSS</div>
+            <div class="skill-icon" style="top: 120px; left: 80px;">JS</div>
+            <div class="skill-icon" style="top: 60px; left: 20px;">React</div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="project-card" data-tilt>
+            <h2>LInux USer</h2>
+            <p>Interested in understanding deep down functionalities of an operating system.</p>
+            <!--a href="#">Live Demo</a> | <a href="#">GitHub</a-->
+        </div>
+        <div class="project-card" data-tilt>
+            <h2>Playing Chess</h2>
+            <p>Playing chess helps improving problem solving skills.</p>
+            <!--a href="#">Live Demo</a> | <a href="#">GitHub</a-->
+        </div>
+        <div class="project-card" data-tilt>
+            <h2>Learning Latest TEchnologies</h2>
+            <p>Helps me keep updated with the trending technologies.</p>
+            <!--a href="#">Live Demo</a> | <a href="#">GitHub</a-->
+        </div>
+    </section>
+
+    <footer>
+        <p>Contact: <a href="mailto:pkarthiktarun@gmail.com">pkarthiktarun@gmail.com</a> | <a href="https://www.github.com/karthikasnewbie">GitHub</a></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script>
+        // Initialize Vanilla Tilt for 3D effect
+        VanillaTilt.init(document.querySelectorAll(".project-card"), {
+            max: 25,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.5
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const trail = document.querySelector('.cursor-trail');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            setTimeout(() => {
+                trail.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            }, 100);
+        });
+    </script>
+</body>
+</html>
